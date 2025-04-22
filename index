@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Googla Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 36px;
+      color: #4285F4;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 24px;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .results {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+
+    .result {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .result:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <div class="logo">
+      <h1>Googla</h1>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search" oninput="searchResults()">
+    </div>
+    <div class="results" id="resultsContainer"></div>
+  </div>
+
+  <script>
+    const results = [
+      "A few minutes to several months",
+      "Severe cases may require surgery",
+      "Discomfort may occur",
+      "Ruptured eardrum can happen",
+      "Ear infection risks",
+      "Potential for hearing loss",
+      "Immediate medical attention recommended",
+      "Symptoms vary based on severity",
+      "Temporary and permanent effects",
+      "Treatment options include surgery"
+    ];
+
+    function searchResults() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filteredResults = results.filter(result => result.toLowerCase().includes(query));
+      displayResults(filteredResults);
+    }
+
+    function displayResults(filteredResults) {
+      const container = document.getElementById("resultsContainer");
+      container.innerHTML = "";
+      filteredResults.forEach(result => {
+        const resultDiv = document.createElement("div");
+        resultDiv.classList.add("result");
+        resultDiv.textContent = result;
+        container.appendChild(resultDiv);
+      });
+    }
+  </script>
+</body>
+</html>
