@@ -1,131 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Googla - Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .header {
+      background-color: #4285f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .header img {
+      height: 50px;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .search-container input {
+      width: 70%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .search-results {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
+    }
+    .result-item {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    .result-item a {
+      text-decoration: none;
+      color: #1a73e8;
+    }
+    .result-item a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Googla Search&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f2f2f2;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.search-container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 400px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Roboto', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 36px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #4285F4;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.search-box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f0f0f0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.search-box input {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.results {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-height: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: scroll;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.result {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.result:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f0f0f0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="search-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;Googla&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="search-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="searchInput" placeholder="Search" oninput="searchResults()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="results" id="resultsContainer"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const results = [</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"A few minutes to several months",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Severe cases may require surgery",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Discomfort may occur",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Ruptured eardrum can happen",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Ear infection risks",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Potential for hearing loss",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Immediate medical attention recommended",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Symptoms vary based on severity",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Temporary and permanent effects",</p>
-<p class="p1"><span class="Apple-converted-space">      </span>"Treatment options include surgery"</p>
-<p class="p1"><span class="Apple-converted-space">    </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function searchResults() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const query = document.getElementById("searchInput").value.toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const filteredResults = results.filter(result =&gt; result.toLowerCase().includes(query));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>displayResults(filteredResults);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function displayResults(filteredResults) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const container = document.getElementById("resultsContainer");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>container.innerHTML = "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>filteredResults.forEach(result =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const resultDiv = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>resultDiv.classList.add("result");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>resultDiv.textContent = result;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>container.appendChild(resultDiv);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+  <!-- Header with logo -->
+  <div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Google_2015_logo.svg/512px-Google_2015_logo.svg.png" alt="Googla Logo">
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search...">
+  </div>
+
+  <!-- Search results -->
+  <div class="search-results" id="results">
+    <div class="result-item"><a href="#">How long can airplane ear last? - A few minutes to several months</a></div>
+    <div class="result-item"><a href="#">Severe cases may require surgery</a></div>
+    <div class="result-item"><a href="#">Ruptured eardrum - discomfort</a></div>
+    <div class="result-item"><a href="#">Airplane ear symptoms - discomfort and pain</a></div>
+    <div class="result-item"><a href="#">Airplane ear treatment options</a></div>
+    <div class="result-item"><a href="#">Ear health and airplane travel - What to know</a></div>
+    <div class="result-item"><a href="#">Airplane ear relief techniques - Expert advice</a></div>
+    <div class="result-item"><a href="#">When to see a doctor for airplane ear</a></div>
+    <div class="result-item"><a href="#">Preventing airplane ear - Tips and precautions</a></div>
+    <div class="result-item"><a href="#">How to pop your ears after a flight</a></div>
+  </div>
+
+  <script>
+    // Simulate a search action by showing results
+    const searchInput = document.getElementById('searchInput');
+    const results = document.getElementById('results');
+
+    searchInput.addEventListener('input', function() {
+      if (searchInput.value.trim() !== '') {
+        results.style.display = 'block';
+      } else {
+        results.style.display = 'none';
+      }
+    });
+  </script>
+
 </body>
 </html>
